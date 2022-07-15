@@ -10,23 +10,26 @@
 <body>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-            <h1>Add a New User</h1>
+            <h1>Edit User {{user.id}}</h1>
             <a href="/users">Home</a>
         </div>
-        <form class="d-flex flex-column gap-3" action="/users/process" method="POST">
+        <form class="d-flex flex-column gap-3" action="/users/{{user.id}}/process" method="POST">
             <div>
                 <label for="first_name" class="form-label">First Name:</label>
-                <input class="form-control" type="text" name="first_name" id="first_name">
+                <input class="form-control" type="text" name="first_name" id="first_name" value="{{user.first_name}}">
             </div>
             <div>
                 <label for="last_name" class="form-label">Last Name:</label>
-                <input class="form-control" type="text" name="last_name" id="last_name">
+                <input class="form-control" type="text" name="last_name" id="last_name" value="{{user.last_name}}">
             </div>
             <div>
                 <label for="email" class="form-label">Email:</label>
-                <input class="form-control" type="text" name="email" id="email">
+                <input class="form-control" type="text" name="email" id="email" value="{{user.email}}">
             </div>
-            <input class="btn btn-danger" type="submit" value="Create">
+            <div class="d-flex align-items-center gap-5">
+                <input class="btn btn-danger" type="submit" value="Update">
+                <a href="/users/{{user.id}}">Show User</a>
+            </div>
         </form>
     </div>
 </body>

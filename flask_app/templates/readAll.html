@@ -17,14 +17,28 @@
                     <th scope="col">Full Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Created At</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {% for user in users %}
                     <tr>
                     {% for data in user.values() %}
-                        <td>{{data}}</td>
+                        <td class="align-middle">{{data}}</td>
                     {% endfor %}
+                        <td>
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a class='nav-link' href="/users/{{user['id']}}">Show</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class='nav-link' href="/users/{{user['id']}}/edit">Edit</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class='nav-link' href="/users/{{user['id']}}/destroy">Delete</a>
+                                </li>
+                            </ul>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
